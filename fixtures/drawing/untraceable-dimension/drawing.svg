@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="420.0mm" height="297.0mm" viewBox="0 0 420.0 297.0">
+<defs><marker id="arw" viewBox="0 0 10 10" refX="9.5" refY="5" markerWidth="3" markerHeight="3" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#1d4ed8"/></marker></defs>
+<rect width="420.0" height="297.0" fill="white"/>
+<rect x="5.000" y="5.000" width="410.000" height="287.000" fill="none" stroke="#111" stroke-width="0.50"/>
+<polygon points="40.000,178.000 160.000,178.000 160.000,98.000 40.000,98.000" fill="none" stroke="#111" stroke-width="0.50" stroke-linejoin="round" class="outline"/>
+<polygon points="54.000,144.000 66.000,144.000 66.000,132.000 54.000,132.000" fill="none" stroke="#666" stroke-width="0.20" stroke-linejoin="round"/>
+<polygon points="90.000,144.000 110.000,144.000 110.000,132.000 90.000,132.000" fill="none" stroke="#666" stroke-width="0.20" stroke-linejoin="round"/>
+<polygon points="124.000,144.000 136.000,144.000 136.000,132.000 124.000,132.000" fill="none" stroke="#666" stroke-width="0.20" stroke-linejoin="round"/>
+<polygon points="40.000,210.000 160.000,210.000 160.000,192.000 40.000,192.000" fill="none" stroke="#111" stroke-width="0.50" stroke-linejoin="round" class="outline"/>
+<polygon points="54.000,210.000 66.000,210.000 66.000,192.000 54.000,192.000" fill="none" stroke="#666" stroke-width="0.20" stroke-linejoin="round" stroke-dasharray="1.2,0.8"/>
+<polygon points="90.000,210.000 110.000,210.000 110.000,192.000 90.000,192.000" fill="none" stroke="#666" stroke-width="0.20" stroke-linejoin="round" stroke-dasharray="1.2,0.8"/>
+<polygon points="124.000,210.000 136.000,210.000 136.000,192.000 124.000,192.000" fill="none" stroke="#666" stroke-width="0.20" stroke-linejoin="round" stroke-dasharray="1.2,0.8"/>
+<polygon points="180.000,210.000 260.000,210.000 260.000,192.000 180.000,192.000" fill="none" stroke="#111" stroke-width="0.50" stroke-linejoin="round" class="outline"/>
+<polygon points="214.000,210.000 226.000,210.000 226.000,192.000 214.000,192.000" fill="none" stroke="#666" stroke-width="0.20" stroke-linejoin="round" stroke-dasharray="1.2,0.8"/>
+<polygon points="214.000,210.000 226.000,210.000 226.000,192.000 214.000,192.000" fill="none" stroke="#666" stroke-width="0.20" stroke-linejoin="round" stroke-dasharray="1.2,0.8"/>
+<polygon points="214.000,210.000 226.000,210.000 226.000,192.000 214.000,192.000" fill="none" stroke="#666" stroke-width="0.20" stroke-linejoin="round" stroke-dasharray="1.2,0.8"/>
+<text x="40.000" y="183.500" font-family="Helvetica, Arial, sans-serif" font-size="3.00" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">TOP</text>
+<text x="40.000" y="215.500" font-family="Helvetica, Arial, sans-serif" font-size="3.00" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">FRONT</text>
+<text x="180.000" y="215.500" font-family="Helvetica, Arial, sans-serif" font-size="3.00" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">RIGHT</text>
+<text x="38.000" y="181.500" font-family="Helvetica, Arial, sans-serif" font-size="2.00" text-anchor="end" fill="#1d4ed8" dominant-baseline="auto">datum (0, 0)</text>
+<line x1="40.000" y1="91.000" x2="100.000" y2="91.000" stroke="#1d4ed8" stroke-width="0.25" stroke-linecap="round" marker-start="url(#arw)" marker-end="url(#arw)" class="dim"/>
+<text x="70.000" y="90.200" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="middle" fill="#1d4ed8" dominant-baseline="auto">30</text>
+<line x1="40.000" y1="84.000" x2="60.000" y2="84.000" stroke="#1d4ed8" stroke-width="0.25" stroke-linecap="round" marker-start="url(#arw)" marker-end="url(#arw)" class="dim"/>
+<text x="50.000" y="83.200" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="middle" fill="#1d4ed8" dominant-baseline="auto">10</text>
+<line x1="60.000" y1="84.000" x2="130.000" y2="84.000" stroke="#1d4ed8" stroke-width="0.25" stroke-linecap="round" marker-start="url(#arw)" marker-end="url(#arw)" class="dim"/>
+<text x="95.000" y="83.200" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="middle" fill="#1d4ed8" dominant-baseline="auto">35</text>
+<line x1="40.000" y1="77.000" x2="160.000" y2="77.000" stroke="#1d4ed8" stroke-width="0.25" stroke-linecap="round" marker-start="url(#arw)" marker-end="url(#arw)" class="dim"/>
+<text x="100.000" y="76.200" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="middle" fill="#1d4ed8" dominant-baseline="auto">77.77</text>
+<line x1="33.000" y1="178.000" x2="33.000" y2="138.000" stroke="#1d4ed8" stroke-width="0.25" stroke-linecap="round" marker-start="url(#arw)" marker-end="url(#arw)" class="dim"/>
+<text x="32.200" y="158.000" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="middle" fill="#1d4ed8" dominant-baseline="auto" transform="rotate(-90.0 32.200 158.000)">20</text>
+<line x1="26.000" y1="178.000" x2="26.000" y2="98.000" stroke="#1d4ed8" stroke-width="0.25" stroke-linecap="round" marker-start="url(#arw)" marker-end="url(#arw)" class="dim"/>
+<text x="25.200" y="138.000" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="middle" fill="#1d4ed8" dominant-baseline="auto" transform="rotate(-90.0 25.200 138.000)">40</text>
+<line x1="40.000" y1="221.000" x2="160.000" y2="221.000" stroke="#1d4ed8" stroke-width="0.25" stroke-linecap="round" marker-start="url(#arw)" marker-end="url(#arw)" class="dim"/>
+<text x="100.000" y="220.200" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="middle" fill="#1d4ed8" dominant-baseline="auto">60</text>
+<line x1="180.000" y1="221.000" x2="260.000" y2="221.000" stroke="#1d4ed8" stroke-width="0.25" stroke-linecap="round" marker-start="url(#arw)" marker-end="url(#arw)" class="dim"/>
+<text x="220.000" y="220.200" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="middle" fill="#1d4ed8" dominant-baseline="auto">40</text>
+<line x1="267.000" y1="210.000" x2="267.000" y2="192.000" stroke="#1d4ed8" stroke-width="0.25" stroke-linecap="round" marker-start="url(#arw)" marker-end="url(#arw)" class="dim"/>
+<text x="266.200" y="201.000" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="middle" fill="#1d4ed8" dominant-baseline="auto" transform="rotate(-90.0 266.200 201.000)">9</text>
+<line x1="100.000" y1="132.000" x2="170.500" y2="102.000" stroke="#111" stroke-width="0.20" stroke-linecap="round" class="leader"/>
+<line x1="170.500" y1="102.000" x2="172.000" y2="102.000" stroke="#111" stroke-width="0.20" stroke-linecap="round" class="leader"/>
+<text x="172.800" y="102.000" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="start" fill="#111" dominant-baseline="middle">H1  10 x 6 THRU</text>
+<line x1="66.000" y1="132.000" x2="170.500" y2="107.500" stroke="#111" stroke-width="0.20" stroke-linecap="round" class="leader"/>
+<line x1="170.500" y1="107.500" x2="172.000" y2="107.500" stroke="#111" stroke-width="0.20" stroke-linecap="round" class="leader"/>
+<text x="172.800" y="107.500" font-family="Helvetica, Arial, sans-serif" font-size="2.60" text-anchor="start" fill="#111" dominant-baseline="middle">H2  2x 6 x 6 THRU</text>
+<rect x="10.000" y="241.000" width="278.000" height="4.600" fill="#f3f4f6" stroke="#111" stroke-width="0.25"/>
+<text x="11.200" y="244.300" font-family="Helvetica, Arial, sans-serif" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">ID</text>
+<text x="20.200" y="244.300" font-family="Helvetica, Arial, sans-serif" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">QTY</text>
+<text x="28.200" y="244.300" font-family="Helvetica, Arial, sans-serif" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">TYPE</text>
+<text x="53.200" y="244.300" font-family="Helvetica, Arial, sans-serif" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">SIZE</text>
+<text x="83.200" y="244.300" font-family="Helvetica, Arial, sans-serif" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">DEPTH</text>
+<text x="125.200" y="244.300" font-family="Helvetica, Arial, sans-serif" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">POSITIONS (model mm)</text>
+<text x="11.200" y="248.900" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">H1</text>
+<text x="20.200" y="248.900" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">1</text>
+<text x="28.200" y="248.900" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">hole rect</text>
+<text x="53.200" y="248.900" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">10 x 6</text>
+<text x="83.200" y="248.900" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">THRU</text>
+<text x="125.200" y="248.900" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">xy: (30, 20)</text>
+<line x1="10.000" y1="250.200" x2="288.000" y2="250.200" stroke="#999" stroke-width="0.15" stroke-linecap="round"/>
+<text x="11.200" y="253.500" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">H2</text>
+<text x="20.200" y="253.500" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">2</text>
+<text x="28.200" y="253.500" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">hole rect</text>
+<text x="53.200" y="253.500" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">6 x 6</text>
+<text x="83.200" y="253.500" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">THRU</text>
+<text x="125.200" y="253.500" font-family="Menlo, Consolas, monospace" font-size="2.30" text-anchor="start" fill="#111" dominant-baseline="auto">xy: (10, 20)  (45, 20)</text>
+<line x1="10.000" y1="254.800" x2="288.000" y2="254.800" stroke="#999" stroke-width="0.15" stroke-linecap="round"/>
+<rect x="10.000" y="241.000" width="278.000" height="13.800" fill="none" stroke="#111" stroke-width="0.30"/>
+<text x="10.000" y="258.300" font-family="Helvetica, Arial, sans-serif" font-size="2.10" text-anchor="start" fill="#333" dominant-baseline="auto">Units mm. Third-angle projection, scale 2:1 on A3. Every number measured from the mesh; no hand-entered values.</text>
+<text x="10.000" y="261.500" font-family="Helvetica, Arial, sans-serif" font-size="2.10" text-anchor="start" fill="#333" dominant-baseline="auto">Inspection drawing: no tolerance, GD&amp;T, thread, finish or material is stated or implied. Advisory, not a release.</text>
+<rect x="292.000" y="241.000" width="118.000" height="42.000" fill="none" stroke="#111" stroke-width="0.50"/>
+<text x="294.000" y="247.500" font-family="Helvetica, Arial, sans-serif" font-size="4.20" text-anchor="start" fill="#111" dominant-baseline="auto" font-weight="bold">plate-3window</text>
+<line x1="292.000" y1="250.000" x2="410.000" y2="250.000" stroke="#111" stroke-width="0.30" stroke-linecap="round"/>
+<text x="294.000" y="253.514" font-family="Helvetica, Arial, sans-serif" font-size="2.20" text-anchor="start" fill="#555" dominant-baseline="auto">SOURCE</text>
+<text x="316.000" y="253.514" font-family="Menlo, Consolas, monospace" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto">plate.stl</text>
+<text x="294.000" y="258.229" font-family="Helvetica, Arial, sans-serif" font-size="2.20" text-anchor="start" fill="#555" dominant-baseline="auto">PART</text>
+<text x="316.000" y="258.229" font-family="Menlo, Consolas, monospace" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto">plate</text>
+<text x="294.000" y="262.943" font-family="Helvetica, Arial, sans-serif" font-size="2.20" text-anchor="start" fill="#555" dominant-baseline="auto">BBOX mm</text>
+<text x="316.000" y="262.943" font-family="Menlo, Consolas, monospace" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto">60 x 40 x 9</text>
+<text x="294.000" y="267.657" font-family="Helvetica, Arial, sans-serif" font-size="2.20" text-anchor="start" fill="#555" dominant-baseline="auto">VOLUME</text>
+<text x="316.000" y="267.657" font-family="Menlo, Consolas, monospace" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto">20412 mm3</text>
+<text x="294.000" y="272.371" font-family="Helvetica, Arial, sans-serif" font-size="2.20" text-anchor="start" fill="#555" dominant-baseline="auto">SCALE / SHEET</text>
+<text x="316.000" y="272.371" font-family="Menlo, Consolas, monospace" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto">2:1  A3 landscape</text>
+<text x="294.000" y="277.086" font-family="Helvetica, Arial, sans-serif" font-size="2.20" text-anchor="start" fill="#555" dominant-baseline="auto">OPENSCAD</text>
+<text x="316.000" y="277.086" font-family="Menlo, Consolas, monospace" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto">2026.09.07 (fixture)</text>
+<text x="294.000" y="281.800" font-family="Helvetica, Arial, sans-serif" font-size="2.20" text-anchor="start" fill="#555" dominant-baseline="auto">MATERIAL</text>
+<text x="316.000" y="281.800" font-family="Menlo, Consolas, monospace" font-size="2.40" text-anchor="start" fill="#111" dominant-baseline="auto">-</text>
+</svg>

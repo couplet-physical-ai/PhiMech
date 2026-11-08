@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+#
+# phimech — the PhiMech command-line entry point.
+#
+# Keep this launcher small and boring: it selects the project interpreter, supplies the
+# repository import path, and strips configured HTTP proxy variables from setup/network commands.
+
+set -euo pipefail
+
+REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+net() {
+  env -u HTTPS_PROXY -u https_proxy -u ALL_PROXY -u all_proxy \
+      -u HTTP_PROXY -u http_proxy "$@"
+}
+
+# Resolution order (phimech/doctor.py `_resolve_interpreter` mirrors it - keep them in step):
+# PHIMECH_PYTHON, PHIMECH_VENV/bin/python, <repo>/build/venv, Homebrew python3.13, python3.
+if [[ -n "${PHIMECH_PYTHON:-}" ]]; then
+  PY="$PHIMECH_PYTHON"
+elif [[ -n "${PHIMECH_VENV:-}" && -x "${PHIMECH_VENV}/bin/python" ]]; then
+  PY="$PHIMECH_VENV/bin/python"
+elif [[ -x "$REPO/build/venv/bin/python" ]]; then
+  PY="$REPO/build/venv/bin/python"
+elif [[ -x "/opt/homebrew/bin/python3.13" ]]; then
+  PY="/opt/homebrew/bin/python3.13"
+else
+  PY="python3"
+fi
+
+export PHIMECH_REPO="$REPO"
+export QT_QPA_PLATFORM=offscreen
+export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+
+case "${1:-help}" in
+  setup)
+    shift
+    net "$PY" "$REPO/phimech/setup_venv.py" "$@"
+    ;;
+  help)
+    exec "$PY" -m phimech.cli --help
+    ;;
+  *)
+    exec "$PY" -m phimech.cli "$@"
+    ;;
+esac

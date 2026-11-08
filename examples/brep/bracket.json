@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "units": "mm",
+  "ops": [
+    {"op": "box", "size": [60, 40, 8]},
+    {"op": "box", "size": [8, 40, 45], "at": [0, 0, 0]},
+    {"op": "fillet", "select": "vertical", "radius": 3},
+    {"op": "chamfer", "select": "top", "length": 1},
+    {"op": "hole", "at": [[20, 10], [20, 30], [45, 20]], "diameter": 5.2,
+     "counterbore": {"diameter": 9.5, "depth": 4}},
+    {"op": "tapped_hole", "at": [[4, 12], [4, 28]], "size": "M4", "depth": 10}
+  ]
+}

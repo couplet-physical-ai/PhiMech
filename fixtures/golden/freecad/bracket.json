@@ -1,0 +1,10 @@
+{
+  "kind": "difference",
+  "children": [
+    { "kind": "cube", "size": [40, 25, 8], "center": false },
+    { "kind": "translate", "v": [8, 12.5, -1],
+      "children": [{ "kind": "cylinder", "h": 10, "r": 2.5 }] },
+    { "kind": "translate", "v": [32, 12.5, -1],
+      "children": [{ "kind": "cylinder", "h": 10, "r": 2.5 }] }
+  ]
+}

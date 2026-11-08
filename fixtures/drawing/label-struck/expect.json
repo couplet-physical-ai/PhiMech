@@ -1,0 +1,12 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "H1's leader runs on through its own label",
+  "drawing": "drawing.json",
+  "fails": [
+    "label_line_overlap"
+  ],
+  "name": "label-struck",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

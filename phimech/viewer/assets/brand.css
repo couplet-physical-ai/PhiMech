@@ -1,0 +1,6 @@
+/* Neutral local pages; no bundled trademark or remote font. */
+:root { color-scheme: dark; --accent: #6194B8; }
+body { margin: 0; background: #161922; color: #F6F8FA; font: 16px/1.6 system-ui, sans-serif; }
+main { max-width: 56rem; margin: 5rem auto; padding: 0 1.5rem; }
+a { color: #96CEE9; }
+code { background: #31353F; padding: .1em .3em; }

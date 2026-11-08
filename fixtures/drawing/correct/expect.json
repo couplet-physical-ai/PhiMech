@@ -1,0 +1,10 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "the sheet as it should be: every check green",
+  "drawing": "drawing.json",
+  "fails": [],
+  "name": "correct",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

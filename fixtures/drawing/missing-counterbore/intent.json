@@ -1,0 +1,42 @@
+{
+  "ops": [
+    {
+      "op": "box",
+      "size": [
+        60,
+        40,
+        9
+      ]
+    },
+    {
+      "at": [
+        [
+          10,
+          20
+        ],
+        [
+          45,
+          20
+        ]
+      ],
+      "counterbore": {
+        "depth": 4,
+        "diameter": 9.5
+      },
+      "diameter": 6,
+      "op": "hole"
+    },
+    {
+      "at": [
+        [
+          30,
+          20
+        ]
+      ],
+      "diameter": 10,
+      "op": "hole"
+    }
+  ],
+  "units": "mm",
+  "version": 1
+}

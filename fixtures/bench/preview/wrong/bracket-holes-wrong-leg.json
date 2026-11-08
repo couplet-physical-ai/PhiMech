@@ -1,0 +1,74 @@
+{
+  "children": [
+    {
+      "children": [
+        {
+          "center": false,
+          "kind": "cube",
+          "size": [
+            40.0,
+            40.0,
+            4.0
+          ]
+        },
+        {
+          "children": [
+            {
+              "center": false,
+              "kind": "cube",
+              "size": [
+                40.0,
+                4.0,
+                30.0
+              ]
+            }
+          ],
+          "kind": "translate",
+          "v": [
+            0.0,
+            36.0,
+            0.0
+          ]
+        }
+      ],
+      "kind": "union"
+    },
+    {
+      "children": [
+        {
+          "center": false,
+          "h": 6.0,
+          "kind": "cylinder",
+          "r": 5.0,
+          "r2": null,
+          "segments": 64
+        }
+      ],
+      "kind": "translate",
+      "v": [
+        12.0,
+        18.0,
+        -1.0
+      ]
+    },
+    {
+      "children": [
+        {
+          "center": false,
+          "h": 6.0,
+          "kind": "cylinder",
+          "r": 5.0,
+          "r2": null,
+          "segments": 64
+        }
+      ],
+      "kind": "translate",
+      "v": [
+        28.0,
+        18.0,
+        -1.0
+      ]
+    }
+  ],
+  "kind": "difference"
+}

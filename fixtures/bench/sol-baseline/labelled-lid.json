@@ -1,0 +1,5 @@
+{"project":"labelled-lid","title":"SENSOR",
+ "components":[{"ref":"BRD1","name":"Board","source":{"kind":"box","size":[60,40,10]}}],
+ "enclosure":{"style":"tray_lid","wall":2,"clearance":1.5,"lid":{"fastening":"snap"},
+              "text":{"label":"SENSOR","size":6}},
+ "outputs":{"formats":["stl"]},"manufacturing":{"process":"fdm"}}

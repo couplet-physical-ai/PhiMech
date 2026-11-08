@@ -1,0 +1,2 @@
+/* Local system font stack: no third-party font assets or remote requests. */
+body { font-family: system-ui, -apple-system, sans-serif; }

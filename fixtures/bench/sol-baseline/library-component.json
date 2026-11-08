@@ -1,0 +1,4 @@
+{"project":"pi-zero-case","title":"Raspberry Pi Zero enclosure from the library",
+ "components":[{"ref":"PI1","name":"Raspberry Pi Zero 2 W","source":{"kind":"library","part":"raspberry-pi-zero-2w"}}],
+ "enclosure":{"style":"tray_lid","wall":2,"clearance":1.5,"corner_radius":2,"lid":{"fastening":"snap"}},
+ "outputs":{"formats":["stl"]},"manufacturing":{"process":"fdm"}}

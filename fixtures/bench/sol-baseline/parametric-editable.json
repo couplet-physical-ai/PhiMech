@@ -1,0 +1,7 @@
+{"project":"parametric-editable","title":"Slider-editable enclosure",
+ "parameters":{"wall":{"value":2,"min":1.2,"max":5,"step":0.4,"unit":"mm","description":"Wall thickness"},
+               "clearance":{"value":1.5,"min":0.5,"max":4,"step":0.1,"unit":"mm","description":"Internal clearance"},
+               "corner_radius":{"value":2,"min":0,"max":6,"step":0.5,"unit":"mm","description":"Outer corner radius"}},
+ "components":[{"ref":"BRD1","name":"Board","source":{"kind":"box","size":[45,45,10]}}],
+ "enclosure":{"style":"tray_lid","wall":"$wall","clearance":"$clearance","corner_radius":"$corner_radius","lid":{"fastening":"snap"}},
+ "outputs":{"formats":["stl"]},"manufacturing":{"process":"fdm"}}

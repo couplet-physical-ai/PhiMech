@@ -1,0 +1,111 @@
+{
+  "suite": "phimech-generation-v1",
+  "description": "Natural-language design briefs with machine-checkable expectations. A model reads `prompt`, authors a design IR, and the grader scores the built result. Every check is a number or a named gate - nothing is scored by opinion. Dimensions are mm.",
+  "cases": [
+    {
+      "id": "box-basic",
+      "prompt": "Design a simple printable enclosure around a single 40 x 60 x 12 mm board. Snap-fit lid, 2 mm walls.",
+      "why": "The floor of competence. A model that cannot do this cannot do anything else here.",
+      "expect": {
+        "builds": true,
+        "gates_pass": ["ir_valid", "placement_no_overlap", "clearance_positive", "wall_thickness",
+                       "manifold", "part_volume_positive"],
+        "printable_parts": 2,
+        "outer_size_mm": {"value": [48, 68, 20], "tolerance": 6}
+      }
+    },
+    {
+      "id": "box-thin-wall-refused",
+      "prompt": "Enclosure around a 30 x 30 x 10 mm board with 0.3 mm walls.",
+      "why": "The brief is unprintable. A good model pushes back or clamps to a printable wall instead of emitting 0.3 mm and calling it done - so the PASS condition is that the design is either refused at validation or built with a wall the gates accept.",
+      "expect": {
+        "either": [
+          {"validates": false},
+          {"builds": true, "gates_pass": ["wall_thickness"]}
+        ]
+      }
+    },
+    {
+      "id": "two-components-gap",
+      "prompt": "Two stacked boards in one enclosure: a 40 x 40 x 8 mm main board and a 25 x 25 x 6 mm radio board mounted 5 mm above it.",
+      "why": "Tests relational placement - the thing the IR exists for. A model that emits absolute coordinates usually fails placement_no_overlap or the stack height.",
+      "expect": {
+        "builds": true,
+        "component_count": 2,
+        "gates_pass": ["placement_no_overlap", "clearance_positive", "manifold"],
+        "min_outer_height_mm": 19
+      }
+    },
+    {
+      "id": "screwed-lid",
+      "prompt": "Enclosure for a 50 x 70 x 15 mm board with an M3 screwed lid, four corner screws, 3 mm corner radius.",
+      "why": "Fastening plus rounded corners is where standoff and fastener gates start firing.",
+      "expect": {
+        "builds": true,
+        "gates_pass": ["screw_count_sane", "fastener_clears_components", "standoff_within_cavity",
+                       "manifold"],
+        "printable_parts": 2
+      }
+    },
+    {
+      "id": "parametric-editable",
+      "prompt": "Design a 45 x 45 x 10 mm board enclosure where wall thickness, clearance and corner radius are all editable parameters with sensible bounds, so they can be adjusted from a slider later.",
+      "why": "The manual-override path. Declaring bounded parameters is a learnable skill and the thing a UI depends on.",
+      "expect": {
+        "builds": true,
+        "parameters_declared": ["wall", "clearance"],
+        "parameters_have_bounds": true,
+        "gates_pass": ["wall_thickness", "manifold"]
+      }
+    },
+    {
+      "id": "printer-bed-aware",
+      "prompt": "Enclosure for a 300 x 300 x 20 mm panel, declared for FDM on a printer bed of 360 x 360 mm so the fit is actually checked.",
+      "why": "fits_bed skips silently unless the design declares manufacturing.printer_bed. This case fails a model that never opts in - a skipped gate is not a passing gate.",
+      "expect": {
+        "builds": true,
+        "gates_pass": ["fits_bed"],
+        "gates_not_skipped": ["fits_bed"]
+      }
+    },
+    {
+      "id": "cable-cutout",
+      "prompt": "Enclosure for a 40 x 50 x 12 mm board with a 12 x 6 mm cable cutout on the front face.",
+      "why": "Cutouts are the most common real feature request and the easiest to place off the face.",
+      "expect": {
+        "builds": true,
+        "gates_pass": ["cutout_within_face", "manifold"],
+        "min_cutouts": 1
+      }
+    },
+    {
+      "id": "labelled-lid",
+      "prompt": "Enclosure for a 60 x 40 x 10 mm board with the text SENSOR embossed legibly on the lid.",
+      "why": "text_legible is warn severity, so a build can look green while the label is unreadable. This case demands the gate actually pass.",
+      "expect": {
+        "builds": true,
+        "gates_pass": ["text_legible"]
+      }
+    },
+    {
+      "id": "tall-narrow",
+      "prompt": "Enclosure for a tall narrow module, 20 x 20 x 60 mm, that will be FDM printed.",
+      "why": "A tall thin part is where overhang and printability advice matter, and where a naive model produces something that cannot be printed upright.",
+      "expect": {
+        "builds": true,
+        "gates_pass": ["manifold", "part_volume_positive"],
+        "gates_pass_or_warn": ["overhang"]
+      }
+    },
+    {
+      "id": "library-component",
+      "prompt": "Enclosure around a Raspberry Pi Zero using PhiMech's component library rather than a hand-measured box.",
+      "why": "Tests whether the model discovers parts_list instead of guessing dimensions. Guessed numbers are the most common silent error in generated CAD.",
+      "expect": {
+        "builds": true,
+        "uses_library_source": true,
+        "gates_pass": ["placement_no_overlap", "manifold"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+{"project":"tall-narrow","title":"Tall narrow module enclosure",
+ "components":[{"ref":"MOD1","name":"Module","source":{"kind":"box","size":[20,20,60]}}],
+ "enclosure":{"style":"tray_lid","wall":2,"clearance":1.5,"lid":{"fastening":"snap"}},
+ "outputs":{"formats":["stl"]},"manufacturing":{"process":"fdm","max_overhang_deg":45}}

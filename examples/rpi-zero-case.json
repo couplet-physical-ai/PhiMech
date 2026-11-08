@@ -1,0 +1,57 @@
+{
+  "project": "rpi-zero-case",
+  "title": "Raspberry Pi Zero 2 W case",
+  "components": [
+    {
+      "ref": "U1",
+      "name": "Raspberry Pi Zero 2 W",
+      "source": {
+        "kind": "library",
+        "part": "raspberry-pi-zero-2w"
+      },
+      "mount": {
+        "style": "standoff",
+        "fastener": "m2.5",
+        "holes": [
+          [
+            3.5,
+            3.5
+          ],
+          [
+            61.5,
+            3.5
+          ],
+          [
+            3.5,
+            26.5
+          ],
+          [
+            61.5,
+            26.5
+          ]
+        ]
+      }
+    }
+  ],
+  "enclosure": {
+    "style": "tray_lid",
+    "lid": {
+      "fastening": "snap"
+    },
+    "features": [
+      {
+        "kind": "foot",
+        "count": 4
+      },
+      {
+        "kind": "wall_mount_tab",
+        "count": 2
+      }
+    ],
+    "text": {
+      "label": "PI ZERO 2 W",
+      "size": 5.0,
+      "depth": 0.6
+    }
+  }
+}

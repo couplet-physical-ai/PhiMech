@@ -1,0 +1,12 @@
+{
+  "declared_intent": "intent.json",
+  "defect": "the feature program declares two counterbores that are absent from the geometry",
+  "drawing": "drawing.json",
+  "fails": [
+    "intent_vs_measured"
+  ],
+  "name": "missing-counterbore",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

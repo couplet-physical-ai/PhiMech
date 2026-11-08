@@ -1,0 +1,33 @@
+{
+  "component": {
+    "mass_g": null,
+    "material": null,
+    "name": "plate",
+    "revision": null
+  },
+  "errors": [],
+  "schema_version": 1,
+  "source": {
+    "configuration": "fixture",
+    "exported_at": null,
+    "exported_by": null,
+    "exporter": {
+      "name": "offline_fixture",
+      "version": null
+    },
+    "kind": "step",
+    "native_path": null,
+    "native_sha256": null
+  },
+  "step": {
+    "path": "model.step",
+    "protocol": "AP214",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "units": "mm"
+  },
+  "translation": {
+    "diagnostics": [],
+    "ok": true
+  },
+  "warnings": []
+}

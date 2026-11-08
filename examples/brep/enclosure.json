@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "units": "mm",
+  "ops": [
+    {"op": "box", "size": [80, 60, 25]},
+    {"op": "fillet", "select": "vertical", "radius": 4},
+    {"op": "shell", "thickness": 2, "open_face": "top"},
+    {"op": "hole", "at": [[8, 8], [72, 8], [8, 52], [72, 52]], "diameter": 3.2,
+     "counterbore": {"diameter": 6, "depth": 1}},
+    {"op": "cut_box", "size": [20, 4, 8], "at": [30, -1, 10]}
+  ]
+}

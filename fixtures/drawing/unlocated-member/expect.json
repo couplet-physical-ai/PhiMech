@@ -1,0 +1,12 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "the pitch dimension is gone, so H2's second window cannot be located from the datum",
+  "drawing": "drawing.json",
+  "fails": [
+    "feature_coverage"
+  ],
+  "name": "unlocated-member",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

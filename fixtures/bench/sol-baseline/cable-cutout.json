@@ -1,0 +1,5 @@
+{"project":"cable-cutout","title":"Enclosure with a front cable exit",
+ "components":[{"ref":"BRD1","name":"Board","source":{"kind":"box","size":[40,50,12]},
+   "access":[{"name":"cable","face":"front","size":[12,6],"shape":"rect","at":[0,0]}]}],
+ "enclosure":{"style":"tray_lid","wall":2,"clearance":1.5,"lid":{"fastening":"snap"}},
+ "outputs":{"formats":["stl"]},"manufacturing":{"process":"fdm"}}

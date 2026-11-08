@@ -1,0 +1,42 @@
+{
+  "component": {
+    "mass_g": null,
+    "material": null,
+    "name": "plate",
+    "revision": null
+  },
+  "errors": [],
+  "schema_version": 1,
+  "source": {
+    "configuration": "fixture",
+    "exported_at": null,
+    "exported_by": null,
+    "exporter": {
+      "name": "offline_fixture",
+      "version": null
+    },
+    "kind": "step",
+    "native_path": null,
+    "native_sha256": null
+  },
+  "step": {
+    "path": "model.step",
+    "protocol": "AP214",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "units": "mm"
+  },
+  "translation": {
+    "diagnostics": [
+      {
+        "message": "1 face was rebuilt during translation",
+        "severity": "warning"
+      },
+      {
+        "message": "entity #1842 could not be translated; the export completed with a gap in the solid",
+        "severity": "error"
+      }
+    ],
+    "ok": false
+  },
+  "warnings": []
+}

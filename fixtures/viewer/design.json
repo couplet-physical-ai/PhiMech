@@ -1,0 +1,58 @@
+{
+  "company": "Example Co",
+  "components": [
+    {
+      "clearance": 1.0,
+      "name": "Stand-in board",
+      "orientation": [
+        0,
+        0,
+        0
+      ],
+      "ref": "BLK1",
+      "source": {
+        "kind": "box",
+        "size": [
+          24,
+          30,
+          6
+        ]
+      }
+    }
+  ],
+  "enclosure": {
+    "clearance": 1.5,
+    "corner_radius": 0,
+    "edge_radius": 1.0,
+    "floor": 2,
+    "lid": {
+      "countersunk": true,
+      "fastening": "snap",
+      "lip": 1.5,
+      "screw": "m3",
+      "screw_count": 4
+    },
+    "style": "tray_lid",
+    "wall": 2
+  },
+  "manufacturing": {
+    "layer_height": 0.2,
+    "max_overhang_deg": 45,
+    "min_feature": 0.8,
+    "min_wall": 1.2,
+    "nozzle": 0.4,
+    "process": "fdm"
+  },
+  "outputs": {
+    "backend": "auto",
+    "exploded_view": true,
+    "formats": [
+      "stl",
+      "png"
+    ],
+    "split_parts": true
+  },
+  "project": "viewer-fixture",
+  "rev": "A",
+  "title": "Viewer fixture — low-poly two-part enclosure"
+}

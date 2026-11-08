@@ -1,0 +1,82 @@
+{
+  "project": "parametric-box",
+  "title": "Parametric enclosure — every editable number is a slider",
+  "parameters": {
+    "wall": {
+      "value": 2,
+      "min": 1.2,
+      "max": 5,
+      "step": 0.2,
+      "unit": "mm",
+      "description": "Enclosure wall thickness. Below ~1.2 mm an FDM wall is not watertight."
+    },
+    "clearance": {
+      "value": 1.5,
+      "min": 0.3,
+      "max": 4,
+      "step": 0.1,
+      "unit": "mm",
+      "description": "Gap between the contents and the inside wall."
+    },
+    "corner_radius": {
+      "value": 3,
+      "min": 0,
+      "max": 8,
+      "step": 0.5,
+      "unit": "mm",
+      "description": "Outer corner radius. 0 gives a hard-edged box."
+    },
+    "board_width": {
+      "value": 40,
+      "min": 20,
+      "max": 90,
+      "step": 1,
+      "unit": "mm",
+      "description": "Width of the board the enclosure is sized around."
+    },
+    "board_depth": {
+      "value": 50,
+      "min": 20,
+      "max": 120,
+      "step": 1,
+      "unit": "mm",
+      "description": "Depth of the board the enclosure is sized around."
+    },
+    "board_height": {
+      "value": 8,
+      "min": 2,
+      "max": 30,
+      "step": 0.5,
+      "unit": "mm",
+      "description": "Tallest thing on the board, including connectors."
+    }
+  },
+  "components": [
+    {
+      "ref": "BRD1",
+      "name": "Board envelope",
+      "source": {
+        "kind": "box",
+        "size": ["$board_width", "$board_depth", "$board_height"]
+      }
+    }
+  ],
+  "enclosure": {
+    "style": "tray_lid",
+    "wall": "$wall",
+    "clearance": "$clearance",
+    "corner_radius": "$corner_radius",
+    "text": {
+      "label": "BOX"
+    },
+    "lid": {
+      "fastening": "snap"
+    }
+  },
+  "outputs": {
+    "formats": ["stl"]
+  },
+  "manufacturing": {
+    "process": "fdm"
+  }
+}

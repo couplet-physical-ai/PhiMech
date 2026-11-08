@@ -1,0 +1,128 @@
+{
+  "backend": "openscad",
+  "bbox_mm": {
+    "max": [
+      60.0,
+      40.0,
+      9.0
+    ],
+    "min": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "bytes": 14348,
+  "groups": [
+    {
+      "corner_r": 0.0,
+      "depth": 9.0,
+      "depth_from": 0.0,
+      "depth_to": 9.0,
+      "hole": true,
+      "id": "H1",
+      "kind": "rect",
+      "positions": [
+        [
+          30.0,
+          20.0
+        ]
+      ],
+      "qty": 1,
+      "size": [
+        10.0,
+        6.0
+      ],
+      "thru": true,
+      "view": "top"
+    },
+    {
+      "corner_r": 0.0,
+      "depth": 9.0,
+      "depth_from": 0.0,
+      "depth_to": 9.0,
+      "hole": true,
+      "id": "H2",
+      "kind": "rect",
+      "positions": [
+        [
+          10.0,
+          20.0
+        ],
+        [
+          45.0,
+          20.0
+        ]
+      ],
+      "qty": 2,
+      "size": [
+        6.0,
+        6.0
+      ],
+      "thru": true,
+      "view": "top"
+    }
+  ],
+  "hashes": {
+    "png_sha256": null,
+    "source_sha256": null,
+    "step_sha256": null,
+    "svg_sha256": "29b3686f22411e27def55a7df7c825ca0cbcbcfbde4619630e2c3bffb1b65f5d"
+  },
+  "intent": "inspection",
+  "levels_z": [
+    0.0,
+    4.33,
+    9.0
+  ],
+  "openscad_version": "2026.09.07 (fixture)",
+  "part": "plate",
+  "path": "drawing.svg",
+  "png": null,
+  "png_tool": null,
+  "render_s": 0.0,
+  "scale": 2.0,
+  "schema_version": 1,
+  "sheet_mm": [
+    420.0,
+    297.0
+  ],
+  "source": "plate.stl",
+  "units": "mm; positions and depths are model coordinates; dimensions on the sheet run from the part's lower-left bbox corner (datum) in each view",
+  "views": {
+    "front": {
+      "bbox": [
+        0.0,
+        0.0,
+        60.0,
+        9.0
+      ],
+      "features": 3,
+      "seconds": 0.0,
+      "slices": 0
+    },
+    "right": {
+      "bbox": [
+        0.0,
+        0.0,
+        40.0,
+        9.0
+      ],
+      "features": 0,
+      "seconds": 0.0,
+      "slices": 0
+    },
+    "top": {
+      "bbox": [
+        0.0,
+        0.0,
+        60.0,
+        40.0
+      ],
+      "features": 3,
+      "seconds": 0.0,
+      "slices": 1
+    }
+  },
+  "volume_mm3": 20412.0
+}

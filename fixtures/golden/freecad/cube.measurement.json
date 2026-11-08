@@ -1,0 +1,7 @@
+{
+  "_comment": "Analytic. Same node as fixtures/golden/openscad/cube.json so the two backends can be cross-checked.",
+  "bbox": { "min": [0.0, 0.0, 0.0], "max": [10.0, 20.0, 30.0], "size": [10.0, 20.0, 30.0] },
+  "volume_mm3": 6000.0,
+  "area_mm2": 2200.0,
+  "solids": 1
+}

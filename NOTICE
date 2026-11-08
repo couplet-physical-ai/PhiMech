@@ -1,0 +1,7 @@
+PhiMech
+Copyright 2026 Exowatt, Inc.
+
+Created at Exowatt, Inc. (https://exowatt.com). Original code is Apache-2.0.
+Vendored BOSL2 is BSD-2-Clause; vendored three.js is MIT. Their upstream copyright,
+license text and attribution are retained in phimech/vendor/BOSL2/LICENSE and
+phimech/viewer/assets/vendor/LICENSE.threejs respectively. See THIRD_PARTY_NOTICES.md.

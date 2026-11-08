@@ -1,0 +1,5 @@
+{"project":"panel-case","title":"Large panel enclosure, bed-checked",
+ "components":[{"ref":"PNL1","name":"Panel","source":{"kind":"box","size":[300,300,20]}}],
+ "enclosure":{"style":"tray_lid","wall":2.4,"clearance":1.5,"lid":{"fastening":"snap"}},
+ "outputs":{"formats":["stl"]},
+ "manufacturing":{"process":"fdm","printer_bed":[360,360,360]}}

@@ -1,0 +1,12 @@
+{
+  "kind": "scad_module",
+  "module": "threaded_rod",
+  "args": {
+    "d": 3,
+    "l": 12,
+    "pitch": 0.5,
+    "$fn": 48
+  },
+  "include": "BOSL2/threading.scad",
+  "children": []
+}

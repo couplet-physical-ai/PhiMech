@@ -1,0 +1,313 @@
+{
+  "cases": [
+    {
+      "caught_by_numeric": false,
+      "caught_by_preview": true,
+      "id": "spacer-box-for-cylinder",
+      "measured_size_mm": [
+        30.0,
+        30.0,
+        40.0
+      ],
+      "min_iou": 0.7609,
+      "numeric_checks": [
+        "builds",
+        "gate:manifold",
+        "gate:part_volume_positive",
+        "outer_size_mm"
+      ],
+      "per_view": {
+        "back": 1.0,
+        "bottom": 0.7969,
+        "front": 1.0,
+        "iso": 0.7609,
+        "left": 1.0,
+        "right": 1.0,
+        "top": 0.7969
+      },
+      "seconds": {
+        "sheet": 0.766,
+        "stl": 0.277,
+        "total": 1.174
+      },
+      "silhouette_visible": true,
+      "volume_mm3": 36000.0,
+      "worst_view": "iso",
+      "wrong": "a 30 x 30 x 40 box instead of a cylinder"
+    },
+    {
+      "caught_by_numeric": false,
+      "caught_by_preview": true,
+      "id": "funnel-straight-for-tapered",
+      "measured_size_mm": [
+        30.0,
+        30.0,
+        40.0
+      ],
+      "min_iou": 0.7387,
+      "numeric_checks": [
+        "builds",
+        "gate:manifold",
+        "gate:part_volume_positive",
+        "outer_size_mm"
+      ],
+      "per_view": {
+        "back": 0.7738,
+        "bottom": 1.0,
+        "front": 0.7738,
+        "iso": 0.7387,
+        "left": 0.7738,
+        "right": 0.7738,
+        "top": 1.0
+      },
+      "seconds": {
+        "sheet": 0.561,
+        "stl": 0.108,
+        "total": 0.768
+      },
+      "silhouette_visible": true,
+      "volume_mm3": 28228.9,
+      "worst_view": "iso",
+      "wrong": "a straight \u00d830 cylinder instead of a \u00d830 -> \u00d816 cone"
+    },
+    {
+      "caught_by_numeric": false,
+      "caught_by_preview": true,
+      "id": "lid-no-cutout",
+      "measured_size_mm": [
+        60.0,
+        40.0,
+        3.0
+      ],
+      "min_iou": 0.7993,
+      "numeric_checks": [
+        "builds",
+        "gate:manifold",
+        "gate:part_volume_positive",
+        "outer_size_mm"
+      ],
+      "per_view": {
+        "back": 1.0,
+        "bottom": 0.7993,
+        "front": 1.0,
+        "iso": 0.8734,
+        "left": 1.0,
+        "right": 1.0,
+        "top": 0.7993
+      },
+      "seconds": {
+        "sheet": 0.491,
+        "stl": 0.067,
+        "total": 0.67
+      },
+      "silhouette_visible": true,
+      "volume_mm3": 7200.0,
+      "worst_view": "top",
+      "wrong": "a plain plate: the display window is missing"
+    },
+    {
+      "caught_by_numeric": false,
+      "caught_by_preview": true,
+      "id": "stand-wrong-angle",
+      "measured_size_mm": [
+        60.0,
+        50.0,
+        40.0
+      ],
+      "min_iou": 0.4152,
+      "numeric_checks": [
+        "builds",
+        "gate:manifold",
+        "gate:part_volume_positive",
+        "outer_size_mm"
+      ],
+      "per_view": {
+        "back": 1.0,
+        "bottom": 1.0,
+        "front": 1.0,
+        "iso": 0.9295,
+        "left": 0.4152,
+        "right": 0.4209,
+        "top": 1.0
+      },
+      "seconds": {
+        "sheet": 0.679,
+        "stl": 0.096,
+        "total": 0.899
+      },
+      "silhouette_visible": true,
+      "volume_mm3": 23538.2,
+      "worst_view": "left",
+      "wrong": "the back rest leans 45 degrees instead of 15"
+    },
+    {
+      "caught_by_numeric": false,
+      "caught_by_preview": true,
+      "id": "bracket-holes-wrong-leg",
+      "measured_size_mm": [
+        40.0,
+        40.0,
+        30.0
+      ],
+      "min_iou": 0.8701,
+      "numeric_checks": [
+        "builds",
+        "gate:manifold",
+        "gate:part_volume_positive",
+        "outer_size_mm"
+      ],
+      "per_view": {
+        "back": 0.8701,
+        "bottom": 0.9019,
+        "front": 0.8701,
+        "iso": 0.9515,
+        "left": 1.0,
+        "right": 1.0,
+        "top": 0.9019
+      },
+      "seconds": {
+        "sheet": 0.71,
+        "stl": 0.119,
+        "total": 0.94
+      },
+      "silhouette_visible": true,
+      "volume_mm3": 9932.7,
+      "worst_view": "front",
+      "wrong": "the two holes go through the horizontal leg instead of the vertical one"
+    },
+    {
+      "caught_by_numeric": false,
+      "caught_by_preview": true,
+      "id": "lid-bezel-missing",
+      "measured_size_mm": [
+        60.0,
+        40.0,
+        11.0
+      ],
+      "min_iou": 0.7629,
+      "numeric_checks": [
+        "builds",
+        "gate:manifold",
+        "gate:part_volume_positive",
+        "outer_size_mm"
+      ],
+      "per_view": {
+        "back": 0.7629,
+        "bottom": 1.0,
+        "front": 0.7629,
+        "iso": 1.0,
+        "left": 0.8777,
+        "right": 0.8777,
+        "top": 1.0
+      },
+      "seconds": {
+        "sheet": 0.527,
+        "stl": 0.078,
+        "total": 0.698
+      },
+      "silhouette_visible": true,
+      "volume_mm3": 8800.0,
+      "worst_view": "front",
+      "wrong": "the LED bezel boss is missing"
+    },
+    {
+      "caught_by_numeric": false,
+      "caught_by_preview": true,
+      "id": "plate-tab-mirrored",
+      "measured_size_mm": [
+        65.0,
+        30.0,
+        4.0
+      ],
+      "min_iou": 0.6901,
+      "numeric_checks": [
+        "builds",
+        "gate:manifold",
+        "gate:part_volume_positive",
+        "outer_size_mm"
+      ],
+      "per_view": {
+        "back": 1.0,
+        "bottom": 0.6901,
+        "front": 1.0,
+        "iso": 0.7413,
+        "left": 1.0,
+        "right": 1.0,
+        "top": 0.6901
+      },
+      "seconds": {
+        "sheet": 0.494,
+        "stl": 0.076,
+        "total": 0.668
+      },
+      "silhouette_visible": true,
+      "volume_mm3": 6600.0,
+      "worst_view": "top",
+      "wrong": "the tab is on the -X edge: a mirror image"
+    },
+    {
+      "caught_by_numeric": false,
+      "caught_by_preview": false,
+      "id": "tray-open-front",
+      "measured_size_mm": [
+        50.0,
+        40.0,
+        20.0
+      ],
+      "min_iou": 1.0,
+      "numeric_checks": [
+        "builds",
+        "gate:manifold",
+        "gate:part_volume_positive",
+        "outer_size_mm"
+      ],
+      "per_view": {
+        "back": 1.0,
+        "bottom": 1.0,
+        "front": 1.0,
+        "iso": 1.0,
+        "left": 1.0,
+        "right": 1.0,
+        "top": 1.0
+      },
+      "seconds": {
+        "sheet": 0.506,
+        "stl": 0.065,
+        "total": 0.664
+      },
+      "silhouette_visible": false,
+      "volume_mm3": 13504.0,
+      "worst_view": "iso",
+      "wrong": "open on the front face with a closed top, instead of open on top"
+    }
+  ],
+  "controls": {
+    "same_shape_height_plus_2mm": {
+      "min_iou": 0.9537,
+      "same_shape": true,
+      "worst_view": "top"
+    },
+    "same_shape_rerender": {
+      "min_iou": 1.0,
+      "same_shape": true
+    }
+  },
+  "gate": {
+    "numeric_catch_max": "1/8 (<= 1/6)",
+    "ok": true,
+    "preview_catch_min": "7/8 (>= 5/6)"
+  },
+  "iou_threshold": 0.92,
+  "openscad": "2026.09.07",
+  "recorded": "2026-09-22",
+  "suite": "phimech-wrong-shape-v1",
+  "summary": {
+    "cases": 8,
+    "closest_wrong_shape_min_iou": 0.8701,
+    "either_caught": 7,
+    "numeric_caught": 0,
+    "preview_caught": 7,
+    "preview_caught_of_silhouette_visible": "7/7"
+  },
+  "tile_px": 160
+}

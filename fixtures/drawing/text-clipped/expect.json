@@ -1,0 +1,12 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "H2's leader label runs off the right edge of the sheet",
+  "drawing": "drawing.json",
+  "fails": [
+    "text_not_clipped"
+  ],
+  "name": "text-clipped",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

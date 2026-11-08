@@ -1,0 +1,12 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "the source manifest reports a translation error the exporter completed anyway",
+  "drawing": "drawing.json",
+  "fails": [
+    "source_translation_clean"
+  ],
+  "name": "dirty-translation",
+  "source_manifest": "source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

@@ -1,0 +1,8 @@
+{
+  "center": false,
+  "h": 40.0,
+  "kind": "cylinder",
+  "r": 15.0,
+  "r2": null,
+  "segments": 64
+}

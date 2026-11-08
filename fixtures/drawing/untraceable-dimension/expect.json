@@ -1,0 +1,12 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "the front view's overall width is printed as 77.77, which nothing measured",
+  "drawing": "drawing.json",
+  "fails": [
+    "dimension_traceability"
+  ],
+  "name": "untraceable-dimension",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

@@ -1,0 +1,12 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "H2 has no leader callout on the view",
+  "drawing": "drawing.json",
+  "fails": [
+    "feature_coverage"
+  ],
+  "name": "missing-callout",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

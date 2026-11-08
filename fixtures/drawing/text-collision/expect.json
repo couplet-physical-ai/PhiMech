@@ -1,0 +1,12 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "H2's leader label is printed on top of H1's",
+  "drawing": "drawing.json",
+  "fails": [
+    "text_no_collision"
+  ],
+  "name": "text-collision",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

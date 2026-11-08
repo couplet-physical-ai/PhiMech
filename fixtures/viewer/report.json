@@ -1,0 +1,549 @@
+{
+ "backend": "auto",
+ "command": "bin/phimech synth build fixtures/viewer/design.json -o fixtures/viewer",
+ "company": "Example Co",
+ "components": [
+  {
+   "name": "Stand-in board",
+   "position": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "ref": "BLK1",
+   "rotation": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "size": [
+    24.0,
+    30.0,
+    6.0
+   ],
+   "source": "box"
+  }
+ ],
+ "elapsed_s": 1.7715,
+ "enclosure": {
+  "cavity_bbox": {
+   "max": [
+    26.5,
+    32.5,
+    14.5
+   ],
+   "min": [
+    -2.5,
+    -2.5,
+    2.0
+   ]
+  },
+  "cavity_size_mm": [
+   29.0,
+   35.0,
+   12.5
+  ],
+  "components": [
+   "BLK1"
+  ],
+  "cutouts": 0,
+  "estimated_material_mm3": 8548.0,
+  "fastening": "snap",
+  "floor_mm": 2.0,
+  "notes": [
+   "4 snap hooks on the base rim with matching recesses in the lid lip",
+   "label text scaled down to 2.0 mm to fit the lid",
+   "label 'Viewer fixture \u2014 low-poly two-part enclosure' debossed on the lid top face"
+  ],
+  "outer_bbox": {
+   "max": [
+    28.5,
+    34.5,
+    16.5
+   ],
+   "min": [
+    -4.5,
+    -4.5,
+    0.0
+   ]
+  },
+  "outer_size_mm": [
+   33.0,
+   39.0,
+   16.5
+  ],
+  "parts": [
+   "base",
+   "lid"
+  ],
+  "screws": 0,
+  "standoffs": 0,
+  "style": "tray_lid",
+  "text_sizes": [
+   2.0
+  ],
+  "wall_mm": 2.0,
+  "world_offset": [
+   0.0,
+   0.0,
+   6.0
+  ]
+ },
+ "errors": [],
+ "formats": [
+  "stl",
+  "png"
+ ],
+ "gates": {
+  "passed": true,
+  "results": [
+   {
+    "message": "errors=0 threshold=0 (validated in-gate)",
+    "name": "ir_valid",
+    "passed": true,
+    "severity": "error",
+    "threshold": 0,
+    "value": 0
+   },
+   {
+    "message": "overlap_errors=0 threshold=0",
+    "name": "placement_no_overlap",
+    "passed": true,
+    "severity": "error",
+    "threshold": 0,
+    "value": 0
+   },
+   {
+    "message": "minimum_cavity_margin=1.5 threshold=0",
+    "name": "clearance_positive",
+    "passed": true,
+    "severity": "error",
+    "threshold": 0.0,
+    "value": 1.5
+   },
+   {
+    "message": "wall=2 min_wall=1.2 nozzle_delta=0",
+    "name": "wall_thickness",
+    "passed": true,
+    "severity": "error",
+    "threshold": 1.2,
+    "value": 2.0
+   },
+   {
+    "message": "floor=2 min_wall=1.2",
+    "name": "floor_thickness",
+    "passed": true,
+    "severity": "error",
+    "threshold": 1.2,
+    "value": 2.0
+   },
+   {
+    "message": "skipped: no printer_bed",
+    "name": "fits_bed",
+    "passed": null,
+    "severity": "error",
+    "threshold": 0.0,
+    "value": null
+   },
+   {
+    "message": "minimum_volume_mm3=2616.15 threshold>0",
+    "name": "part_volume_positive",
+    "passed": true,
+    "severity": "error",
+    "threshold": 0.0,
+    "value": 2616.1505020281347
+   },
+   {
+    "message": "base:solids=1,open_edges=0; lid:solids=1,open_edges=0 threshold=1",
+    "name": "manifold",
+    "passed": true,
+    "severity": "error",
+    "threshold": 1,
+    "value": 1
+   },
+   {
+    "message": "no standoffs",
+    "name": "min_feature",
+    "passed": true,
+    "severity": "error",
+    "threshold": 0.8,
+    "value": 0.8
+   },
+   {
+    "message": "not applicable",
+    "name": "screw_count_sane",
+    "passed": true,
+    "severity": "error",
+    "threshold": 2,
+    "value": 0.0
+   },
+   {
+    "message": "no cutouts",
+    "name": "cutout_within_face",
+    "passed": true,
+    "severity": "error",
+    "threshold": 0.0,
+    "value": 0.0
+   },
+   {
+    "message": "no standoffs or lid posts",
+    "name": "standoff_within_cavity",
+    "passed": true,
+    "severity": "error",
+    "threshold": 0.0,
+    "value": 0.0
+   },
+   {
+    "message": "no lid posts",
+    "name": "fastener_clears_components",
+    "passed": true,
+    "severity": "error",
+    "threshold": 0.0,
+    "value": 0.0
+   },
+   {
+    "message": "no standoffs",
+    "name": "standoff_lands_on_hole",
+    "passed": true,
+    "severity": "error",
+    "threshold": 0.05,
+    "value": 0.0
+   },
+   {
+    "message": "minimum_text_size_mm=2 threshold=4",
+    "name": "text_legible",
+    "passed": false,
+    "severity": "warn",
+    "threshold": 4.0,
+    "value": 2.0
+   },
+   {
+    "message": "maximum_overhang_fraction=0.0355748 threshold=0.35 angle_deg=45",
+    "name": "overhang",
+    "passed": true,
+    "severity": "warn",
+    "threshold": 0.35,
+    "value": 0.0355747651933221
+   },
+   {
+    "message": "material_g=11.1495 density_g_cm3=1.24 scale=1.0",
+    "name": "material_estimate",
+    "passed": true,
+    "severity": "warn",
+    "threshold": 0.0,
+    "value": 11.14947493020164
+   }
+  ]
+ },
+ "gates_enabled": true,
+ "ir_path": "fixtures/viewer/v3.json",
+ "measurements": {
+  "base": {
+   "area_mm2": 6525.552311867807,
+   "bbox": {
+    "max": [
+     28.5,
+     34.5,
+     14.5
+    ],
+    "min": [
+     -4.5,
+     -4.5,
+     0.0
+    ],
+    "size": [
+     33.0,
+     39.0,
+     14.5
+    ]
+   },
+   "extra": {
+    "stl": "fixtures/viewer/viewer-fixture-base.stl"
+   },
+   "solids": 1,
+   "volume_mm3": 6375.3615384570585
+  },
+  "lid": {
+   "area_mm2": 3130.5422614454296,
+   "bbox": {
+    "max": [
+     28.5,
+     34.5,
+     16.5
+    ],
+    "min": [
+     -4.5,
+     -4.5,
+     13.0
+    ],
+    "size": [
+     33.0,
+     39.0,
+     3.5
+    ]
+   },
+   "extra": {
+    "stl": "fixtures/viewer/viewer-fixture-lid.stl"
+   },
+   "solids": 1,
+   "volume_mm3": 2616.1505020281347
+  }
+ },
+ "notes": [
+  "enclosure: 4 snap hooks on the base rim with matching recesses in the lid lip",
+  "enclosure: label text scaled down to 2.0 mm to fit the lid",
+  "enclosure: label 'Viewer fixture \u2014 low-poly two-part enclosure' debossed on the lid top face"
+ ],
+ "ok": true,
+ "out_dir": "fixtures/viewer",
+ "outputs": [
+  {
+   "backend": "openscad",
+   "bytes": 1566448,
+   "fmt": "stl",
+   "part": "base",
+   "path": "fixtures/viewer/viewer-fixture-base.stl",
+   "seconds": 0.1947
+  },
+  {
+   "backend": "openscad",
+   "bytes": 2051961,
+   "fmt": "stl",
+   "part": "lid",
+   "path": "fixtures/viewer/viewer-fixture-lid.stl",
+   "seconds": 0.1757
+  },
+  {
+   "backend": "openscad",
+   "bytes": 65324,
+   "fmt": "png",
+   "part": "assembly",
+   "path": "fixtures/viewer/viewer-fixture-assembly.png",
+   "seconds": 0.3257
+  },
+  {
+   "backend": "openscad",
+   "bytes": 63694,
+   "fmt": "png",
+   "part": "exploded",
+   "path": "fixtures/viewer/viewer-fixture-exploded.png",
+   "seconds": 0.2583
+  }
+ ],
+ "parts": {
+  "assembly": {
+   "formats": [
+    "png"
+   ],
+   "path": "fixtures/viewer/viewer-fixture-assembly.png",
+   "printable": false,
+   "size": null
+  },
+  "base": {
+   "formats": [
+    "stl"
+   ],
+   "path": "fixtures/viewer/viewer-fixture-base.stl",
+   "printable": true,
+   "size": [
+    33.0,
+    39.0,
+    14.5
+   ]
+  },
+  "exploded": {
+   "formats": [
+    "png"
+   ],
+   "path": "fixtures/viewer/viewer-fixture-exploded.png",
+   "printable": false,
+   "size": null
+  },
+  "lid": {
+   "formats": [
+    "stl"
+   ],
+   "path": "fixtures/viewer/viewer-fixture-lid.stl",
+   "printable": true,
+   "size": [
+    33.0,
+    39.0,
+    3.5
+   ]
+  }
+ },
+ "phimech_version": "0.1.0",
+ "placement": {
+  "bbox": {
+   "max": [
+    25.0,
+    31.0,
+    7.0
+   ],
+   "min": [
+    -1.0,
+    -1.0,
+    -1.0
+   ]
+  },
+  "bbox_bodies": {
+   "max": [
+    24.0,
+    30.0,
+    6.0
+   ],
+   "min": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "errors": [],
+  "items": [
+   {
+    "envelope": {
+     "access": [],
+     "footprint": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       24.0,
+       0.0
+      ],
+      [
+       24.0,
+       30.0
+      ],
+      [
+       0.0,
+       30.0
+      ]
+     ],
+     "has_body": true,
+     "holes": [],
+     "meta": {},
+     "mount_plane_z": 0.0,
+     "mount_thickness": 0.0,
+     "name": "Stand-in board",
+     "ref": "BLK1",
+     "size": [
+      24.0,
+      30.0,
+      6.0
+     ],
+     "source": "box",
+     "thermal_w": 0.0
+    },
+    "keepout_bbox": {
+     "max": [
+      25.0,
+      31.0,
+      7.0
+     ],
+     "min": [
+      -1.0,
+      -1.0,
+      -1.0
+     ]
+    },
+    "position": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "ref": "BLK1",
+    "rotation": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "world_bbox": {
+     "max": [
+      24.0,
+      30.0,
+      6.0
+     ],
+     "min": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   }
+  ],
+  "order": [
+   "BLK1"
+  ]
+ },
+ "printable_parts": [
+  "base",
+  "lid"
+ ],
+ "project": "viewer-fixture",
+ "report_md": "fixtures/viewer/REPORT.md",
+ "report_path": "fixtures/viewer/report.json",
+ "rev": "A",
+ "stages": [
+  {
+   "ok": true,
+   "seconds": 0.0016,
+   "stage": "load"
+  },
+  {
+   "ok": true,
+   "seconds": 0.0648,
+   "stage": "validate"
+  },
+  {
+   "note": "1 envelope(s)",
+   "ok": true,
+   "seconds": 0.0116,
+   "stage": "envelopes"
+  },
+  {
+   "ok": true,
+   "seconds": 0.0009,
+   "stage": "place"
+  },
+  {
+   "note": "parts: base, lid",
+   "ok": true,
+   "seconds": 0.0026,
+   "stage": "enclosure"
+  },
+  {
+   "note": "PASS: 17 gates, 1 failed, 4 skipped",
+   "ok": true,
+   "seconds": 0.0042,
+   "stage": "gates_static"
+  },
+  {
+   "note": "4 file(s) for 4 part(s)",
+   "ok": true,
+   "seconds": 1.1753,
+   "stage": "render"
+  },
+  {
+   "note": "2 part(s) measured",
+   "ok": true,
+   "seconds": 0.318,
+   "stage": "measure"
+  },
+  {
+   "note": "PASS: 17 gates, 1 failed, 1 skipped",
+   "ok": true,
+   "seconds": 0.1909,
+   "stage": "gates_full"
+  },
+  {
+   "note": "report.json + REPORT.md",
+   "ok": true,
+   "seconds": 0.0,
+   "stage": "report"
+  }
+ ],
+ "timestamp": "2026-09-14T15:34:16",
+ "title": "Viewer fixture \u2014 low-poly two-part enclosure"
+}

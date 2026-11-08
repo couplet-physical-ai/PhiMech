@@ -1,0 +1,47 @@
+{
+  "project": "bare-assembly",
+  "title": "Bare three-part assembly",
+  "components": [
+    {
+      "ref": "BOX1",
+      "name": "Base block",
+      "source": {
+        "kind": "box",
+        "size": [20, 20, 8]
+      }
+    },
+    {
+      "ref": "BOX2",
+      "name": "Beside block",
+      "source": {
+        "kind": "box",
+        "size": [12, 16, 5]
+      }
+    },
+    {
+      "ref": "BOX3",
+      "name": "Above block",
+      "source": {
+        "kind": "box",
+        "size": [10, 10, 4]
+      }
+    }
+  ],
+  "placement": [
+    {
+      "ref": "BOX2",
+      "relation": "beside",
+      "to": "BOX1",
+      "gap": 2
+    },
+    {
+      "ref": "BOX3",
+      "relation": "above",
+      "to": "BOX1",
+      "gap": 2
+    }
+  ],
+  "outputs": {
+    "formats": ["stl"]
+  }
+}

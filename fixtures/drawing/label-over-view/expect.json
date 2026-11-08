@@ -1,0 +1,12 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "H1's leader label is printed inside the top view, over the plate",
+  "drawing": "drawing.json",
+  "fails": [
+    "label_view_overlap"
+  ],
+  "name": "label-over-view",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

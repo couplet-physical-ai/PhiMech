@@ -1,0 +1,317 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/couplet-physical-ai/PhiMech/blob/main/phimech/ir/design-ir.schema.json",
+  "title": "PhiMech design IR",
+  "description": "What an agent writes to describe a mechanical assembly: the components that exist, where they sit relative to each other, and what enclosure should be synthesised around them. Coordinates are never model output — the synth pipeline derives every dimension from component envelopes plus the constraints here. Units: mm, degrees.",
+  "type": "object",
+  "required": ["project", "components"],
+  "additionalProperties": false,
+  "properties": {
+    "project": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$", "description": "Slug; names the output directory and files." },
+    "title": { "type": "string" },
+    "rev": { "type": "string", "default": "A" },
+    "company": { "type": "string", "default": "" },
+    "units": { "const": "mm" },
+
+    "parameters": {
+      "type": "object",
+      "description": "Named, bounded numbers that other fields reference as \"$name\". The ONLY supported way to edit a design by hand or from a UI slider: an edit changes one parameter, the pipeline rebuilds, and every gate re-runs, so the design stays reproducible from the IR. Editing derived geometry or coordinates instead would break that. References are resolved before validation, so the rest of the schema still sees plain numbers.",
+      "additionalProperties": { "$ref": "#/$defs/parameter" }
+    },
+
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Every physical thing inside the assembly. Each component has exactly one geometry source.",
+      "items": { "$ref": "#/$defs/component" }
+    },
+
+    "placement": {
+      "type": "array",
+      "description": "Relative placement constraints, resolved in order by synth/place.py. A component with no constraint sits at the assembly origin.",
+      "items": { "$ref": "#/$defs/constraint" }
+    },
+
+    "enclosure": { "$ref": "#/$defs/enclosure" },
+
+    "outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "formats": {
+          "type": "array",
+          "items": { "enum": ["stl", "step", "3mf", "scad", "fcstd", "png", "obj"] },
+          "default": ["stl", "step", "scad", "png"]
+        },
+        "backend": { "enum": ["auto", "openscad", "freecad"], "default": "auto" },
+        "split_parts": { "type": "boolean", "default": true, "description": "Emit one file per printable part (base, lid, ...) in addition to the assembly." },
+        "exploded_view": { "type": "boolean", "default": true }
+      }
+    },
+
+    "manufacturing": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "process": { "enum": ["fdm", "sla", "cnc", "sheet", "injection"], "default": "fdm" },
+        "nozzle": { "type": "number", "default": 0.4, "description": "FDM nozzle diameter; wall thickness gates snap to multiples of this." },
+        "layer_height": { "type": "number", "default": 0.2 },
+        "min_wall": { "type": "number", "default": 1.2 },
+        "min_feature": { "type": "number", "default": 0.8 },
+        "max_overhang_deg": { "type": "number", "default": 45 },
+        "printer_bed": { "$ref": "#/$defs/vec3", "description": "Max part size; the printability gate fails a part that exceeds it." },
+        "material": { "type": "string", "description": "Filament family or full profile name, e.g. 'PETG', 'ABS', 'QIDI ABS Rapido'. Enables the machine_material_feasible gate when `machine` is set." },
+        "general_tolerance": { "$ref": "#/$defs/general_tolerance" },
+        "finish": { "type": "string", "description": "Surface finish a human DECLARED, verbatim as it should appear on the drawing: 'Ra 3.2', 'bead blast, no secondary finish', 'as-printed'. PhiMech never derives this from the process or the geometry — a printed part is not automatically 'as-printed', because the author may intend vapour smoothing or paint. There is NO default: absence means UNSPECIFIED and the drawing says UNSPECIFIED rather than guessing. Resolved by `phimech/ir/tolerance.py`." },
+        "machine": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Opt in to gating this design against a real printer, queried read-only over Moonraker. Presence of this object is what enables the machine_* gates; they are never run implicitly because they make a network call. Nothing here starts a print, moves an axis, heats anything, or writes config.",
+          "properties": {
+            "check": { "type": "boolean", "default": true, "description": "Set false to declare a machine without gating against it." },
+            "url": { "type": "string", "description": "Moonraker base URL. Defaults to $PHIMECH_PRINTER_URL." }
+          }
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "vec3": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+    "vec2": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 2 },
+    "ref": { "type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$", "description": "Component reference designator, e.g. PCB1, BAT1, DISP1." },
+    "face": { "enum": ["top", "bottom", "left", "right", "front", "back"] },
+
+    "general_tolerance": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "The general dimensional tolerance a HUMAN declared for this part: what the drawing prints for every dimension that carries no individual tolerance. PhiMech never picks one. Choosing ±0.1 over ±0.3 is an engineering decision about fit, function and process that the geometry simply does not contain, and a machinist would hold whatever is printed — so there is NO default here, and absence means UNSPECIFIED, which is what the drawing says. Declare EITHER a published `standard` (the resolver expands its own published table: expanding a class a human chose is a service, choosing the class is not PhiMech's to do) OR explicit values (`plus_minus`, or a `linear`/`angular` table). This is NOT `components[].access[].tolerance`: that one is a cutout clearance grown around a connector opening so the part fits, it is consumed by the synth pipeline, and it is never printed as a drawing tolerance. Resolved by `phimech/ir/tolerance.py`.",
+      "properties": {
+        "standard": { "type": "string", "description": "A published general-tolerance class, written as it appears in the drawing's tolerance block: 'ISO 2768-f', 'ISO 2768-m', 'ISO 2768-c', 'ISO 2768-v'. Anything the resolver does not know how to expand is still carried onto the drawing verbatim, with no table beside it — an unknown class is never approximated to a known one." },
+        "plus_minus": { "type": "number", "exclusiveMinimum": 0, "description": "One symmetric ± in mm applying to every linear dimension, for the common case where the author wants a single number rather than a banded table. Mutually exclusive with `linear`." },
+        "linear": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/tolerance_band" }, "description": "Author-supplied banded table for LINEAR dimensions; each band's `plus_minus` is in mm. Mutually exclusive with `plus_minus`." },
+        "angular": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/tolerance_band" }, "description": "Author-supplied banded table for ANGULAR dimensions; each band's `plus_minus` is in DEGREES and the band is keyed by the length in mm of the shorter side of the angle, as ISO 2768-1 keys it." }
+      }
+    },
+
+    "tolerance_band": {
+      "type": "object",
+      "required": ["range_min", "range_max", "plus_minus"],
+      "additionalProperties": false,
+      "description": "One row of a general-tolerance table: a nominal size over `range_min` and up to and including `range_max` takes ±`plus_minus`. Both bounds are mm (for an angular table they bound the shorter side of the angle, not the angle); `plus_minus` is mm in a linear table and degrees in an angular one. A nominal size that falls in no band has no general tolerance and must be toleranced individually — the drawing says so rather than reaching for the nearest band.",
+      "properties": {
+        "range_min": { "type": "number", "minimum": 0, "description": "Lower bound of the nominal size band, mm. Exclusive, except in the first band of a table, where it is inclusive — ISO 2768-1's own first linear band reads '0.5 up to 3'." },
+        "range_max": { "type": "number", "exclusiveMinimum": 0, "description": "Inclusive upper bound of the nominal size band, mm." },
+        "plus_minus": { "type": "number", "exclusiveMinimum": 0, "description": "Symmetric permissible deviation: mm in a linear table, degrees in an angular one. Written without a unit suffix in the key because the unit depends on which table the row sits in." }
+      }
+    },
+
+    "parameter": {
+      "type": "object",
+      "required": ["value"],
+      "additionalProperties": false,
+      "description": "One editable number. Give min and max whenever a UI or a human may change it: bounds are what stop an edit from silently producing an unbuildable design, and they are enforced on every write.",
+      "properties": {
+        "value": { "type": "number", "description": "Current value, in mm unless `unit` says otherwise." },
+        "min": { "type": "number", "description": "Inclusive lower bound; a write below it is refused." },
+        "max": { "type": "number", "description": "Inclusive upper bound; a write above it is refused." },
+        "step": { "type": "number", "exclusiveMinimum": 0, "description": "Slider increment. Presentation only - never enforced, because a gate-passing value must not be rejected for being off-grid." },
+        "unit": { "enum": ["mm", "deg", "g", "count"], "default": "mm", "description": "Declared so a UI can label the control. Geometry stays mm and degrees." },
+        "description": { "type": "string", "description": "What the number means, for the slider label and for the agent choosing a value." }
+      }
+    },
+
+    "component": {
+      "type": "object",
+      "required": ["ref", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "ref": { "$ref": "#/$defs/ref" },
+        "name": { "type": "string", "description": "Human label (e.g. 'Controller board')." },
+        "source": { "$ref": "#/$defs/source" },
+        "clearance": { "type": "number", "default": 1.0, "description": "Keep-out grown around the component envelope before any wall is placed." },
+        "orientation": { "$ref": "#/$defs/vec3", "default": [0, 0, 0], "description": "Euler rotation applied to the component in assembly space." },
+        "mount": { "$ref": "#/$defs/mount" },
+        "thermal_w": { "type": "number", "description": "Dissipated power, W. Drives the venting heuristic in synth." },
+        "access": {
+          "type": "array",
+          "description": "Features on this component that must reach the outside world (ports, buttons, displays, LEDs). Each becomes an enclosure cutout, sized from the feature plus tolerance.",
+          "items": { "$ref": "#/$defs/access" }
+        }
+      }
+    },
+
+    "source": {
+      "description": "Exactly one geometry provider.",
+      "oneOf": [
+        {
+          "type": "object", "required": ["kind", "size"], "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "box" },
+            "size": { "$ref": "#/$defs/vec3" }
+          }
+        },
+        {
+          "type": "object", "required": ["kind", "d", "h"], "additionalProperties": false,
+          "properties": {
+            "kind": { "const": "cylinder" },
+            "d": { "type": "number" }, "h": { "type": "number" },
+            "axis": { "enum": ["x", "y", "z"], "default": "z" }
+          }
+        },
+        {
+          "type": "object", "required": ["kind", "path"], "additionalProperties": false,
+          "description": "A KiCad/PhiCad board. Envelope, outline, mounting holes and connector positions are extracted by components/pcb.py. Component heights come from footprint 3D models when present, else from the height table.",
+          "properties": {
+            "kind": { "const": "kicad_pcb" },
+            "path": { "type": "string", "description": "Absolute path to the .kicad_pcb." },
+            "thickness": { "type": "number", "description": "Override: board thickness. Omit to use the `(general (thickness ...))` value in the referenced board file." },
+            "component_height_top": { "type": "number", "description": "Override: tallest component above the board. Omit to use the tallest extracted top-side footprint." },
+            "component_height_bottom": { "type": "number", "description": "Override: tallest component below the board. Omit to use the tallest extracted bottom-side footprint / lead protrusion." },
+            "expose": {
+              "type": "array", "description": "Footprint refs whose faces should be exposed through the enclosure (connectors, LEDs, buttons). Each becomes an implicit `access` entry.",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        {
+          "type": "object", "required": ["kind", "path"], "additionalProperties": false,
+          "description": "An imported vendor model (STEP/STL). Envelope is measured by the backend.",
+          "properties": {
+            "kind": { "const": "import" },
+            "path": { "type": "string" },
+            "scale": { "type": "number", "default": 1.0 }
+          }
+        },
+        {
+          "type": "object", "required": ["kind", "part"], "additionalProperties": false,
+          "description": "A part from PhiMech's parametric component library (components/library.py): batteries, displays, standard modules, fasteners.",
+          "properties": {
+            "kind": { "const": "library" },
+            "part": { "type": "string", "description": "Library key, e.g. '18650', 'ssd1306-0.96', 'raspberry-pi-zero-2w', 'm3-heat-set-insert'." },
+            "params": { "type": "object", "additionalProperties": true }
+          }
+        },
+        {
+          "type": "object", "required": ["kind", "csg"], "additionalProperties": false,
+          "description": "Inline CSG AST (phimech.csg.ast JSON form). Escape hatch for one-off shapes.",
+          "properties": {
+            "kind": { "const": "csg" },
+            "csg": { "type": "object" }
+          }
+        }
+      ]
+    },
+
+    "mount": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "How the component is held. `standoff` needs holes (auto-detected for kicad_pcb, taken from the library entry for a library part that declares them, explicit otherwise).",
+      "properties": {
+        "style": { "enum": ["standoff", "pocket", "clip", "slot", "adhesive", "none"], "default": "pocket" },
+        "holes": {
+          "type": "array", "description": "Hole centres in component-local XY, mm. Auto-filled for kicad_pcb sources.",
+          "items": { "$ref": "#/$defs/vec2" }
+        },
+        "hole_d": { "type": "number", "default": 3.2 },
+        "fastener": { "enum": ["m2", "m2.5", "m3", "m4", "heat-set-m3", "self-tap"], "default": "m3" },
+        "standoff_h": { "type": "number", "default": 4.0 },
+        "through": { "type": "boolean", "default": false, "description": "Bore each standoff with the fastener's clearance diameter (or the component's own hole, whichever is larger) instead of a self-tapping pilot, for a bolt that passes through from below into a threaded socket in the component, such as a camera's 1/4-20 tripod thread." },
+        "face": { "$ref": "#/$defs/face", "default": "bottom", "description": "Which enclosure face the component mounts to." }
+      }
+    },
+
+    "access": {
+      "type": "object",
+      "required": ["face", "size"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "face": { "$ref": "#/$defs/face", "description": "Which face of the component the feature sits on." },
+        "at": { "$ref": "#/$defs/vec2", "description": "Feature centre on that face, component-local, mm. Auto-filled from footprint position for kicad_pcb `expose` entries." },
+        "size": { "$ref": "#/$defs/vec2" },
+        "shape": { "enum": ["rect", "round", "slot"], "default": "rect" },
+        "tolerance": { "type": "number", "default": 0.5, "description": "Clearance in mm grown around this feature before it is cut through the wall, so the real connector fits the real opening. A fit allowance consumed by the synth pipeline — NOT a drawing tolerance, never printed as one, and unrelated to `manufacturing.general_tolerance`." },
+        "through_lid": { "type": "boolean", "default": false }
+      }
+    },
+
+    "constraint": {
+      "type": "object",
+      "required": ["ref", "relation"],
+      "additionalProperties": false,
+      "properties": {
+        "ref": { "$ref": "#/$defs/ref" },
+        "relation": { "enum": ["at", "above", "below", "beside", "behind", "in_front", "stacked_on", "centered_in"] },
+        "to": { "$ref": "#/$defs/ref", "description": "Anchor component (omit for `at`)." },
+        "gap": { "type": "number", "default": 2.0, "description": "Air gap between envelopes along the relation axis." },
+        "offset": { "$ref": "#/$defs/vec3", "default": [0, 0, 0] },
+        "align": { "enum": ["min", "center", "max"], "default": "center", "description": "Alignment on the axes perpendicular to the relation." },
+        "position": { "$ref": "#/$defs/vec3", "description": "Only for `at`: absolute placement (an escape hatch, not the normal path)." }
+      }
+    },
+
+    "enclosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "The casing to synthesise around the placed components. Omit for a bare assembly.",
+      "properties": {
+        "style": { "enum": ["shell", "tray_lid", "clamshell", "sleeve", "open_frame"], "default": "tray_lid" },
+        "wall": { "type": "number", "default": 2.0 },
+        "floor": { "type": "number", "description": "Defaults to `wall`." },
+        "clearance": { "type": "number", "default": 1.5, "description": "Global air gap between the union of component keep-outs and the inner wall." },
+        "corner_radius": { "type": "number", "default": 3.0 },
+        "edge_radius": { "type": "number", "default": 1.0 },
+        "lid": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "fastening": { "enum": ["screws", "snap", "friction", "magnets", "hinge", "none"], "default": "screws" },
+            "lip": { "type": "number", "default": 1.5, "description": "Height of the alignment lip." },
+            "screw": { "enum": ["m2", "m2.5", "m3", "m4"], "default": "m3" },
+            "screw_count": { "type": "integer", "minimum": 2, "default": 4 },
+            "countersunk": { "type": "boolean", "default": true }
+          }
+        },
+        "features": {
+          "type": "array",
+          "description": "Extra enclosure-level features not tied to a component.",
+          "items": {
+            "type": "object", "required": ["kind"], "additionalProperties": false,
+            "properties": {
+              "kind": { "enum": ["vent", "cable_gland", "cutout", "boss", "text", "wall_mount_tab", "din_clip", "foot"] },
+              "face": { "$ref": "#/$defs/face" },
+              "at": { "$ref": "#/$defs/vec2" },
+              "size": { "$ref": "#/$defs/vec2" },
+              "shape": { "enum": ["rect", "round", "slot"], "default": "rect", "description": "Cross-section of a `cutout` (a `cable_gland` is always round). `round` uses the larger of `size` as the diameter." },
+              "tolerance": { "type": "number", "default": 0.0, "description": "Clearance in mm grown around a `cutout`/`cable_gland` opening on every side. A fit allowance, not a drawing tolerance." },
+              "count": { "type": "integer", "minimum": 1 },
+              "pitch": { "type": "number" },
+              "text": { "type": "string" },
+              "depth": { "type": "number" },
+              "params": { "type": "object", "additionalProperties": true }
+            }
+          }
+        },
+        "vents": {
+          "type": "object", "additionalProperties": false,
+          "description": "Auto-venting: synth places slots on the named faces when any component declares `thermal_w`.",
+          "properties": {
+            "auto": { "type": "boolean", "default": true },
+            "faces": { "type": "array", "items": { "$ref": "#/$defs/face" }, "default": ["left", "right"] },
+            "slot_w": { "type": "number", "default": 1.5 },
+            "pitch": { "type": "number", "default": 4.0 }
+          }
+        },
+        "text": {
+          "type": "object", "additionalProperties": false,
+          "properties": {
+            "label": { "type": "string", "description": "Embossed/debossed on the lid. Defaults to `title`." },
+            "size": { "type": "number", "default": 6 },
+            "depth": { "type": "number", "default": 0.6 },
+            "emboss": { "type": "boolean", "default": false }
+          }
+        }
+      }
+    }
+  }
+}

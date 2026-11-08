@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+out/
+*.egg-info/
+.pytest_cache/
+.DS_Store
+# rendered artefacts that are not goldens
+/examples/**/out/
+/tests/_tmp/
+
+# build artefacts
+out/
+build/
+
+# import measurement cache written beside imported STEP/STL files (mtime-keyed, never commit)
+*.phimech-measure.json

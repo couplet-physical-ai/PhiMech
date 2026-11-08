@@ -1,0 +1,5 @@
+{
+  "kind": "cube",
+  "size": [10, 20, 30],
+  "center": false
+}

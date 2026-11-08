@@ -1,0 +1,33 @@
+{
+  "children": [
+    {
+      "center": false,
+      "kind": "cube",
+      "size": [
+        60.0,
+        40.0,
+        3.0
+      ]
+    },
+    {
+      "children": [
+        {
+          "center": false,
+          "kind": "cube",
+          "size": [
+            20.0,
+            10.0,
+            8.0
+          ]
+        }
+      ],
+      "kind": "translate",
+      "v": [
+        5.0,
+        15.0,
+        3.0
+      ]
+    }
+  ],
+  "kind": "union"
+}

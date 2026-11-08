@@ -1,0 +1,6 @@
+{"project":"two-boards","title":"Stacked main and radio board",
+ "components":[{"ref":"MAIN1","name":"Main board","source":{"kind":"box","size":[40,40,8]}},
+               {"ref":"RADIO1","name":"Radio board","source":{"kind":"box","size":[25,25,6]}}],
+ "placement":[{"ref":"RADIO1","relation":"above","to":"MAIN1","gap":5}],
+ "enclosure":{"style":"tray_lid","wall":2,"clearance":1.5,"lid":{"fastening":"snap"}},
+ "outputs":{"formats":["stl"]},"manufacturing":{"process":"fdm"}}

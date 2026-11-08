@@ -1,0 +1,61 @@
+{
+  "project": "battery-box",
+  "title": "Twin 18650 battery box",
+  "components": [
+    {
+      "ref": "BAT1",
+      "name": "Left 18650 cell",
+      "source": {
+        "kind": "library",
+        "part": "18650"
+      }
+    },
+    {
+      "ref": "BAT2",
+      "name": "Right 18650 cell",
+      "source": {
+        "kind": "library",
+        "part": "18650"
+      }
+    },
+    {
+      "ref": "CTRL1",
+      "name": "USB-C charge board",
+      "source": {
+        "kind": "box",
+        "size": [40, 20, 8]
+      },
+      "thermal_w": 1,
+      "access": [
+        {
+          "name": "USB-C",
+          "face": "front",
+          "size": [9.5, 3.5],
+          "shape": "slot"
+        }
+      ]
+    }
+  ],
+  "placement": [
+    {
+      "ref": "BAT2",
+      "relation": "beside",
+      "to": "BAT1",
+      "gap": 1
+    },
+    {
+      "ref": "CTRL1",
+      "relation": "stacked_on",
+      "to": "BAT1"
+    }
+  ],
+  "enclosure": {
+    "style": "clamshell",
+    "lid": {
+      "fastening": "snap"
+    },
+    "vents": {
+      "auto": true
+    }
+  }
+}

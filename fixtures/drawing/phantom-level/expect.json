@@ -1,0 +1,12 @@
+{
+  "declared_intent": "../intent.json",
+  "defect": "z=4.33 is printed as a level but no horizontal face exists there",
+  "drawing": "drawing.json",
+  "fails": [
+    "levels_are_faces"
+  ],
+  "name": "phantom-level",
+  "source_manifest": "../source.json",
+  "stl": "../plate.stl",
+  "svg": "drawing.svg"
+}

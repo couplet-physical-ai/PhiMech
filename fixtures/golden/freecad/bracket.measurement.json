@@ -1,0 +1,7 @@
+{
+  "_comment": "Analytic: 40x25x8 plate less two through-holes r=2.5. volume = 40*25*8 - 2*pi*2.5^2*8. Holes are over-cut by 1mm at each end (the EPS convention) so the bbox is unchanged and the hole walls are full height.",
+  "bbox": { "min": [0.0, 0.0, 0.0], "max": [40.0, 25.0, 8.0], "size": [40.0, 25.0, 8.0] },
+  "volume_mm3": 7685.840735,
+  "area_mm2": 3212.787596,
+  "solids": 1
+}
