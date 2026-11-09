@@ -1,0 +1,20 @@
+# Roadrunner CI (Woodpecker + Dagger, https://cicd.apps.example.com): pytest on Python 3.11 with the dev extra (CAD-dependent tests skip without kernels), then `uv build` (sdist + wheel).
+# `$$` escapes `$` for Woodpecker. Docs: https://cicd.docs.example.com/roadrunner/
+labels:
+  tier: "0"
+when:
+  - event: pull_request
+  - event: [push, manual]
+    branch: main
+steps:
+  - name: python
+    image: bash
+    environment:
+      OTEL_EXPORTER_OTLP_LOGS_ENDPOINT: http://192.0.2.1:4318/v1/logs
+      OTEL_EXPORTER_OTLP_LOGS_PROTOCOL: http/protobuf
+    commands:
+      - >-
+        ci-runner v0.10.1 python-uv --src=. --repo="$${CI_REPO_NAME,,}" --python=3.11 --sync-args=--extra=dev
+        --run='uv run --extra dev pytest -q && uv build'
+        --dep-cache=registry.dev.example.com/cache
+        --dep-cache-password=file:///etc/ci/cache-password --test-workers=2

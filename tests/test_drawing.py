@@ -1009,7 +1009,7 @@ def test_cluster_markings_folds_shallow_mixed_loops_into_one_row() -> None:
               _glyph(33.9, 34, 3.7, 4.8, "profile"), _glyph(38.5, 34, 4.5, 4.8, "profile")]
     hole = d.Feature(d.classify_loop(_circle(3.5, 3.5, 2.5), True), "top", 1.6, 11.6, False)
     kept, markings = d.cluster_markings(glyphs + [hole], "top")
-    assert [f.shape.size[0] for f in kept] == [2.5]
+    assert [round(f.shape.size[0], 9) for f in kept] == [2.5]
     assert len(markings) == 1 and markings[0].loops == 6
     row = markings[0].row()
     assert row == ("M1  SHALLOW RELIEF REGION, 6 LOOPS, 0.51 DEEP, GEOMETRY PER MODEL "
